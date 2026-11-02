@@ -1,0 +1,586 @@
+<!doctype html>
+<html lang="en" data-theme="light" data-font="standard" data-width="standard">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="The personal website of Syed Sadain Haider, founder of TransitionAI and Computer Science Ph.D. student at Virginia Tech.">
+  <meta name="theme-color" content="#ffffff">
+  <meta property="og:title" content="Syed Sadain Haider — Personal website">
+  <meta property="og:description" content="Research, professional experience, education, and selected awards.">
+  <meta property="og:type" content="website">
+  <title>Syed Sadain Haider — Personal website</title>
+  <style>
+    :root {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Lato, Helvetica, Arial, sans-serif;
+      --background: #fff;
+      --surface: #fff;
+      --surface-subtle: #f8f9fa;
+      --surface-highlight: #eaecf0;
+      --text: #202122;
+      --muted: #54595d;
+      --faint: #72777d;
+      --border: #a2a9b1;
+      --border-soft: #c8ccd1;
+      --hairline: #eaecf0;
+      --link: #0645ad;
+      --link-hover: #0b0080;
+      --accent: #36c;
+      --alert: #fff5d6;
+      --shadow: 0 3px 18px rgba(0,0,0,.09);
+      --font-body: 14px;
+      --article-max: 960px;
+    }
+    html[data-theme="dark"] {
+      --background: #202122;
+      --surface: #202122;
+      --surface-subtle: #27292d;
+      --surface-highlight: #383b40;
+      --text: #eaecf0;
+      --muted: #c8ccd1;
+      --faint: #a2a9b1;
+      --border: #72777d;
+      --border-soft: #54595d;
+      --hairline: #404244;
+      --link: #8ab4ff;
+      --link-hover: #c9ddff;
+      --accent: #6d9eff;
+      --alert: #453c23;
+      --shadow: 0 4px 24px rgba(0,0,0,.3);
+      color-scheme: dark;
+    }
+    html[data-font="small"] { --font-body: 13px; }
+    html[data-font="large"] { --font-body: 16px; }
+    html[data-width="wide"] { --article-max: 1260px; }
+    *,*::before,*::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 28px; }
+    body { margin: 0; background: var(--background); color: var(--text); font-size: var(--font-body); line-height: 1.65; }
+    button,input { font: inherit; }
+    button { cursor: pointer; }
+    a { color: var(--link); text-decoration: none; }
+    a:hover { color: var(--link-hover); text-decoration: underline; }
+    a:focus-visible,button:focus-visible,input:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+    ::selection { background: #a7c7f5; color: #202122; }
+    .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; }
+
+    /* Header follows the compact, utility-first Vector 2022 layout. */
+    .site-header { height: 70px; display: grid; grid-template-columns: minmax(250px,1fr) minmax(290px,500px) minmax(220px,1fr); align-items: center; gap: 22px; padding: 0 38px; background: var(--surface); }
+    .site-brand { display: flex; align-items: center; gap: 10px; min-width: 0; color: var(--text); }
+    .site-brand:hover { text-decoration: none; color: var(--text); }
+    .brand-type { display: flex; flex-direction: column; justify-content: center; white-space: nowrap; }
+    .brand-name { font: 22px/1.15 Georgia,"Times New Roman",serif; letter-spacing: -.4px; }
+    .header-start { display: flex; align-items: center; gap: 14px; }
+    .icon-button { width: 38px; height: 38px; background: transparent; border: 0; color: var(--text); display: grid; place-items: center; border-radius: 3px; }
+    .icon-button:hover { background: var(--surface-highlight); }
+    .icon { width: 20px; height: 20px; display: block; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    .site-search { position: relative; display: flex; height: 34px; min-width: 0; }
+    .search-field { border: 1px solid var(--border); border-right: 0; background: var(--surface); color: var(--text); min-width: 0; flex: 1; padding: 0 11px 0 36px; outline-offset: -1px; font-size: 14px; }
+    .search-field::placeholder { color: var(--muted); opacity: 1; }
+    .site-search .icon { position: absolute; pointer-events: none; color: var(--muted); top: 7px; left: 10px; width: 19px; height: 19px; }
+    .search-submit { background: var(--surface-subtle); color: var(--text); font-weight: 700; border: 1px solid var(--border); min-width: 68px; padding: 0 12px; white-space: nowrap; }
+    .search-submit:hover { background: var(--surface-highlight); }
+    .search-results { display: none; position: absolute; top: calc(100% + 5px); right: 0; left: 0; background: var(--surface); border: 1px solid var(--border-soft); box-shadow: var(--shadow); z-index: 20; padding: 9px 0; max-height: 330px; overflow: auto; }
+    .search-results.show { display: block; }
+    .result-caption { color: var(--muted); font-size: 12px; font-weight: 600; padding: 5px 15px 7px; }
+    .result-link { display: block; padding: 7px 15px; font-size: 13px; color: var(--text); }
+    .result-link:hover { text-decoration: none; background: var(--surface-subtle); }
+    .result-link small { display: block; color: var(--muted); font-size: 11px; margin-top: 1px; }
+    .header-links { display: flex; align-items: center; justify-content: flex-end; gap: 18px; white-space: nowrap; font-size: 13px; }
+    .header-links .menu-mobile { display: none; }
+
+    .page-shell { display: grid; grid-template-columns: minmax(176px, 210px) minmax(0, var(--article-max)) minmax(165px, 195px); justify-content: center; gap: clamp(25px, 3.4vw, 58px); padding: 9px 37px 80px; margin: 0 auto; max-width: 1780px; }
+    body.toc-collapsed .page-shell { grid-template-columns: 0 minmax(0, var(--article-max)) minmax(165px, 195px); gap: clamp(14px, 2.2vw, 40px); }
+    .sidebar-left,.sidebar-right { min-width: 0; }
+    .sticky { position: sticky; top: 25px; }
+    .sidebar-title { font-size: 14px; font-weight: 700; line-height: 1.4; border-bottom: 1px solid var(--hairline); padding-bottom: 9px; display: flex; justify-content: space-between; gap: 8px; align-items: center; }
+    .sidebar-title button { color: var(--link); background: transparent; border: 0; padding: 0; font-size: 12px; font-weight: 400; }
+    .sidebar-title button:hover { text-decoration: underline; }
+    .toc-list { margin: 10px 0 0; padding: 0; list-style: none; font-size: 13px; max-height: calc(100vh - 130px); overflow-y: auto; }
+    .toc-list li { margin: 0; padding: 0; }
+    .toc-list a { color: var(--text); display: block; border-left: 2px solid transparent; padding: 6px 8px 6px 12px; line-height: 1.4; }
+    .toc-list a:hover { background: var(--surface-subtle); text-decoration: none; }
+    .toc-list a.active { color: var(--text); border-left-color: var(--accent); font-weight: 700; }
+    .toc-list .toc-child a { padding-left: 25px; font-size: 12.5px; }
+    .sidebar-left .toc-panel { padding-top: 27px; }
+    body.toc-collapsed .sidebar-left { visibility: hidden; }
+    .contents-restore { display: none; position: fixed; left: 10px; top: 85px; z-index: 10; background: var(--surface-subtle); border: 1px solid var(--border-soft); color: var(--link); font-size: 12px; padding: 6px 9px; border-radius: 3px; }
+    body.toc-collapsed .contents-restore { display: block; }
+
+    .article { min-width: 0; padding-top: 15px; }
+    .article-top { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+    h1,h2 { font-family: "Linux Libertine", "Georgia", "Times New Roman", serif; font-weight: 400; }
+    h1 { font-size: 30px; line-height: 1.3; letter-spacing: -.45px; margin: 0 0 2px; }
+    .language-link { font-size: 13px; font-weight: 600; white-space: nowrap; }
+    .article-tabs { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border-soft); height: 42px; margin: 3px 0 14px; gap: 14px; }
+    .tab-left,.tab-right { display: flex; align-items: stretch; height: 100%; gap: 20px; }
+    .tab { background: none; border: 0; color: var(--link); display: inline-flex; align-items: center; border-bottom: 2px solid transparent; padding: 1px 1px 0; font-size: 13px; font-weight: 400; }
+    .tab:hover { color: var(--link-hover); text-decoration: underline; }
+    .tab.active { border-bottom-color: var(--text); color: var(--text); font-weight: 600; }
+    .tools-wrapper { position: relative; display: flex; height: 100%; align-items: stretch; }
+    .tools-trigger { gap: 6px; }
+    .tools-trigger .chevron { display: inline-block; transform: translateY(-2px); font-size: 10px; }
+    .tools-menu { display: none; position: absolute; right: 0; top: calc(100% - 1px); min-width: 188px; padding: 7px 0; border: 1px solid var(--border-soft); box-shadow: var(--shadow); background: var(--surface); z-index: 12; }
+    .tools-wrapper.open .tools-menu { display: block; }
+    .tools-menu button,.tools-menu a { display: block; width: 100%; text-align: left; background: transparent; border: 0; color: var(--text); font-size: 13px; font-weight: 400; padding: 8px 14px; text-decoration: none; }
+    .tools-menu button:hover,.tools-menu a:hover { background: var(--surface-subtle); text-decoration: none; }
+    .tools-menu .tools-divider { border-top: 1px solid var(--hairline); margin: 5px 0; }
+    .tools-menu .tools-feedback { color: var(--muted); font-size: 11px; padding: 4px 14px 3px; }
+    .article-disclaimer { color: var(--muted); font-size: 12.5px; margin: 0 0 15px; }
+    .article-lead { margin-bottom: 18px; }
+    .article-lead p { margin: .4em 0 1em; }
+    .article-body { font-size: 1em; }
+    .article-body p { margin: .45em 0 1.05em; }
+    .article-body section { scroll-margin-top: 22px; margin-top: 24px; }
+    .article-body section:first-of-type { margin-top: 20px; }
+    .article-body h2 { border-bottom: 1px solid var(--border); font-size: 23px; margin: 0 0 13px; line-height: 1.4; padding-bottom: 3px; }
+    .article-body h3 { font-size: 16px; margin: 18px 0 6px; line-height: 1.5; }
+    .edit-link { float: right; font: 12px/2.6 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+    .article-body ul { padding-left: 24px; margin-top: 7px; }
+    .article-body li { margin: 5px 0; }
+    .article-body a.ext::after { content: "↗"; font-family: Arial,sans-serif; font-size: .8em; display: inline-block; margin-left: 3px; vertical-align: 1px; }
+    .lead { font-size: 1em; }
+    .infobox { float: right; width: 288px; border: 1px solid var(--border); background: var(--surface-subtle); margin: 5px 0 20px 24px; border-spacing: 0; font-size: 12.5px; line-height: 1.45; }
+    .infobox th,.infobox td { text-align: left; vertical-align: top; padding: 7px 9px; }
+    .infobox .infobox-image { padding: 12px 12px 3px; text-align: center; border-top: 0; }
+    .infobox .infobox-image img { display: block; width: 100%; max-width: 260px; height: auto; aspect-ratio: 1/1; object-fit: cover; margin: 0 auto; }
+    .infobox .infobox-caption { text-align: center; color: var(--muted); font-size: 11px; padding: 4px 8px 8px; }
+    .infobox .infobox-head { font-size: 17px; background: var(--surface-highlight); color: var(--text); text-align: center; padding: 10px 12px; }
+    .infobox .infobox-subhead { text-align: center; color: var(--muted); padding: 8px; font-size: 11.5px; font-weight: 400; }
+    .infobox th.label { width: 34%; font-weight: 700; padding-right: 0; }
+    .infobox tr:last-child td,.infobox tr:last-child th { padding-bottom: 13px; }
+    .infobox tbody tr:not(:first-child) th,.infobox tbody tr:not(:first-child) td { border-top: 1px solid var(--hairline); }
+    .infobox tbody tr:nth-child(2) th,.infobox tbody tr:nth-child(2) td { border-top: 0; }
+    .notice { background: var(--surface-subtle); border: 1px solid var(--border-soft); padding: 11px 14px; margin: 12px 0; font-size: 13px; }
+    .wikitable { border-collapse: collapse; font-size: 13px; margin: 12px 0 18px; width: 100%; line-height: 1.5; }
+    .wikitable th,.wikitable td { border: 1px solid var(--border); padding: 8px 10px; vertical-align: top; text-align: left; }
+    .wikitable th { background: var(--surface-highlight); font-weight: 700; }
+    .wikitable tr:nth-child(even) td { background: var(--surface-subtle); }
+    .section-flash { animation: flash 2.2s ease-out; }
+    @keyframes flash { 0%,30% { background: var(--alert); } 100% { background: transparent; } }
+    .muted { color: var(--muted); }
+    .top-link { font-size: 12px; margin-top: 28px; }
+
+    .sidebar-right .appearance-panel { padding-top: 27px; }
+    .setting-group { margin: 17px 0 19px; }
+    .setting-title { color: var(--muted); font-size: 12px; font-weight: 600; margin: 0 0 7px; }
+    .radio-option { display: flex; align-items: center; gap: 8px; font-size: 13px; padding: 4px 0; cursor: pointer; }
+    .radio-option input { margin: 0; accent-color: var(--accent); }
+    .appearance-explainer { color: var(--faint); font-size: 11.5px; line-height: 1.45; }
+
+    .site-footer { border-top: 1px solid var(--hairline); margin-top: 33px; padding: 15px 0 30px; font-size: 12px; color: var(--muted); line-height: 1.6; }
+    .footer-links { display: flex; gap: 18px; flex-wrap: wrap; margin-top: 9px; }
+    .mobile-toc-toggle { display: none; }
+    .overlay { display: none; }
+
+    @media (max-width: 1250px) {
+      .page-shell { grid-template-columns: 185px minmax(0,var(--article-max)); gap: 28px; padding: 8px 35px 55px; }
+      .sidebar-right { display: none; }
+      body.toc-collapsed .page-shell { grid-template-columns: 0 minmax(0,var(--article-max)); }
+      .site-header { grid-template-columns: minmax(240px, 1fr) minmax(230px, 460px) minmax(155px,1fr); gap: 14px; padding: 0 27px; }
+      .header-links { gap: 12px; }
+    }
+    @media (max-width: 850px) {
+      .site-header { height: 62px; grid-template-columns: minmax(160px, 1fr) minmax(0, 330px) auto; padding: 0 15px; gap: 12px; border-bottom: 1px solid var(--hairline); }
+      .brand-name { font-size: 17px; }
+      .site-header .header-start { gap: 5px; }
+      .header-links > a { display: none; }
+      .header-links .menu-mobile { display: inline-flex; align-items: center; }
+      .page-shell,body.toc-collapsed .page-shell { display: block; padding: 5px 24px 45px; }
+      .sidebar-left { position: fixed; left: 0; top: 0; bottom: 0; z-index: 100; width: min(82vw,290px); background: var(--surface); box-shadow: var(--shadow); padding: 15px 22px 22px; transform: translateX(-105%); transition: transform .2s ease; visibility: visible !important; }
+      .sidebar-left .toc-panel { padding-top: 0; }
+      body.toc-open .sidebar-left { transform: translateX(0); }
+      .overlay { position: fixed; z-index: 99; inset: 0; background: rgba(0,0,0,.4); }
+      body.toc-open .overlay { display: block; }
+      .contents-restore { display: none !important; }
+      .article { padding-top: 14px; }
+      .mobile-toc-toggle { display: inline-flex; gap: 6px; align-items: center; background: transparent; border: 0; color: var(--link); padding: 0; font-size: 13px; }
+      .article-tabs { margin-top: 8px; }
+      .toc-list { max-height: calc(100vh - 75px); }
+    }
+    @media (max-width: 580px) {
+      .site-header { grid-template-columns: 1fr auto; gap: 8px; padding: 0 13px; }
+      .site-brand { gap: 7px; }
+      .site-search { display: none; }
+      .page-shell { padding: 0 15px 25px; }
+      body.toc-collapsed .page-shell { padding: 0 15px 25px; }
+      h1 { font-size: 28px; }
+      .article-top { align-items: center; }
+      .language-link { display: none; }
+      .tab-right { gap: 12px; }
+      .infobox { float: none; width: 100%; max-width: 420px; margin: 8px auto 19px; }
+      .article-body h2 { font-size: 21px; }
+      .wikitable { display: block; overflow-x: auto; white-space: normal; }
+      .wikitable th,.wikitable td { min-width: 130px; }
+      .header-links { font-size: 12px; }
+      .article-disclaimer { font-size: 11.5px; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *,*:before,*:after { animation-duration: .01ms !important; transition-duration: .01ms !important; } }
+    @media print {
+      .site-header,.sidebar-left,.sidebar-right,.article-tabs,.mobile-toc-toggle,.edit-link,.site-footer .footer-links,.contents-restore { display: none !important; }
+      body { background: #fff; color: #000; font-size: 11pt; }
+      .page-shell { display: block; padding: 0; }
+      .article { padding: 0; }
+      .infobox { break-inside: avoid; }
+      a { color: #000; }
+    }
+  </style>
+</head>
+<body id="top">
+  <header class="site-header" role="banner">
+    <div class="header-start">
+      <button class="icon-button" id="nav-toggle" type="button" aria-label="Open table of contents" aria-controls="contents" aria-expanded="false">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+      <a class="site-brand" href="#top" aria-label="Syed Sadain Haider homepage">
+        <span class="brand-name">Syed Sadain Haider</span>
+      </a>
+    </div>
+
+    <form class="site-search" id="search-form" role="search" autocomplete="off">
+      <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m16 16 5 5"/></svg>
+      <label class="sr-only" for="search-field">Search this page</label>
+      <input class="search-field" id="search-field" placeholder="Search this page" type="search" maxlength="100">
+      <button class="search-submit" type="submit">Search</button>
+      <div class="search-results" id="search-results" aria-live="polite"></div>
+    </form>
+
+    <nav class="header-links" aria-label="External links">
+      <a href="https://github.com/theobjectorientedguy" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="https://linkedin.com/in/sadain-haider" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="mailto:syedsadain@vt.edu">Contact</a>
+      <a href="#external-links" class="menu-mobile">Links</a>
+    </nav>
+  </header>
+
+  <div class="overlay" id="nav-overlay" aria-hidden="true"></div>
+  <button id="contents-restore" class="contents-restore" type="button">Contents</button>
+
+  <div class="page-shell">
+    <aside class="sidebar-left" id="contents" aria-label="Table of contents">
+      <div class="sticky toc-panel">
+        <div class="sidebar-title"><span>Contents</span><button id="toc-hide" type="button">hide</button></div>
+        <nav aria-label="Contents">
+          <ol class="toc-list" id="toc-list">
+            <li><a class="active" href="#top">(Top)</a></li>
+            <li><a href="#education">1 Education</a></li>
+            <li><a href="#research">2 Research</a></li>
+            <li><a href="#career">3 Career</a></li>
+            <li class="toc-child"><a href="#transitionai">3.1 TransitionAI</a></li>
+            <li class="toc-child"><a href="#datics-ai">3.2 Datics AI</a></li>
+            <li class="toc-child"><a href="#yellow-beam">3.3 Yellow Beam Technologies</a></li>
+            <li class="toc-child"><a href="#motioncode">3.4 MotionCode</a></li>
+            <li><a href="#awards">4 Honors and awards</a></li>
+            <li><a href="#teaching">5 Teaching and community</a></li>
+            <li><a href="#certifications">6 Certifications</a></li>
+            <li><a href="#external-links">7 External links</a></li>
+          </ol>
+        </nav>
+      </div>
+    </aside>
+
+    <main class="article" id="content">
+      <div class="article-top">
+        <h1>Syed Sadain Haider</h1>
+        <span class="language-link">English</span>
+      </div>
+      <div class="article-tabs">
+        <div class="tab-left"><span class="tab active">Article</span><a class="tab" href="mailto:syedsadain@vt.edu?subject=Personal%20website%20inquiry">Talk</a></div>
+        <div class="tab-right">
+          <span class="tab active">Read</span>
+          <div class="tools-wrapper" id="tools-wrapper">
+            <button class="tab tools-trigger" id="tools-toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="tools-menu">Tools <span class="chevron" aria-hidden="true">⌄</span></button>
+            <div class="tools-menu" id="tools-menu" role="group" aria-label="Page tools">
+              <button id="share-button" type="button">Copy permanent link</button>
+              <button id="print-button" type="button">Printable version</button>
+              <div class="tools-divider"></div>
+              <a href="https://github.com/theobjectorientedguy" target="_blank" rel="noopener noreferrer">GitHub profile</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="mobile-toc-toggle" type="button" id="mobile-contents"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16M4 10h16M4 15h16M4 20h16"/></svg> Contents</button>
+      <p class="article-disclaimer">Personal website · Not an official Wikipedia article.</p>
+
+      <div class="article-body">
+        <aside class="infobox" aria-label="Biographical information">
+          <table style="width:100%;border-collapse:collapse">
+            <thead>
+              <tr><th colspan="2" class="infobox-head">Syed Sadain Haider</th></tr>
+              <tr><td colspan="2" class="infobox-image"><img src="portrait.jpg" alt="Portrait of Syed Sadain Haider" width="260" height="260"></td></tr>
+              <tr><td colspan="2" class="infobox-caption">Syed Sadain Haider</td></tr>
+              <tr><td colspan="2" class="infobox-subhead">Founder and computer science researcher</td></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row" class="label">Full name</th><td>Syed Sadain Haider</td></tr>
+              <tr><th scope="row" class="label">Education</th><td>Virginia Tech (Ph.D., in progress)<br>University of Management and Technology (B.S.)</td></tr>
+              <tr><th scope="row" class="label">Occupation</th><td>Founder of TransitionAI<br>Ph.D. student</td></tr>
+              <tr><th scope="row" class="label">Former role</th><td>Senior Software Engineer, Datics AI</td></tr>
+              <tr><th scope="row" class="label">Research</th><td>Multimodal foundation models, embodied AI, physical intelligence, vision-language-action models, agentic reasoning</td></tr>
+              <tr><th scope="row" class="label">Awards</th><td>Microsoft Imagine Cup 2025 Global Semifinalist<br>Google Gemma AI Hackathon 2024 Global Finalist</td></tr>
+              <tr><th scope="row" class="label">Website</th><td><a class="ext" href="https://github.com/theobjectorientedguy" target="_blank" rel="noopener noreferrer">GitHub</a><br><a class="ext" href="https://linkedin.com/in/sadain-haider" target="_blank" rel="noopener noreferrer">LinkedIn</a></td></tr>
+            </tbody>
+          </table>
+        </aside>
+
+        <div class="article-lead" id="biography">
+          <p class="lead"><b>Syed Sadain Haider</b> is the founder of <b>TransitionAI</b> and a computer science Ph.D. student at <b>Virginia Tech</b>. His research interests include multimodal foundation models, physical intelligence, embodied AI, vision-language-action models, agentic reasoning, and applications of artificial intelligence in education.</p>
+          <p>He previously worked as a senior software engineer at <b>Datics AI</b>. His engineering experience includes autonomous AI agents, multimodal video intelligence, information retrieval, conversational AI, and cloud-based software engineering.</p>
+        </div>
+
+        <section id="education" aria-labelledby="education-title">
+          <h2 id="education-title">Education</h2>
+          <p>Syed began his <b>Ph.D. in Computer Science at Virginia Tech</b> in August 2026, where he also serves as a graduate teaching assistant for CS 2104: Introduction to Problem Solving.</p>
+          <p>He earned a <b>Bachelor of Science in Software Engineering</b> from the <b>University of Management and Technology</b> in 2025, graduating with a <b>CGPA of 3.92/4.0</b> and ranking <b>second among 290 students</b>. He was a silver medalist and received the GreenAir Special Gold Medal, three Rector Gold Medals, three Dean Silver Medals, and a full merit scholarship with stipend.</p>
+          <p>His final-year thesis was titled <i>SmartGrade AI: Agent-Driven Automated Exam Checking with Reasoning Enhanced Feedback</i>.</p>
+        </section>
+
+        <section id="research" aria-labelledby="research-title">
+          <h2 id="research-title">Research</h2>
+          <p>At Virginia Tech, his research projects, advised by <b>Dr. Sehrish Basir</b>, focus on:</p>
+          <ul>
+            <li><b>Scientific laboratory intelligence:</b> Multimodal foundation models and embodied agents for perception, reasoning, and action in scientific laboratory environments.</li>
+            <li><b>Video-language understanding:</b> Multimodal AI for video-language understanding, temporal activity recognition, and automated pedagogical assessment using natural language processing and computer vision.</li>
+          </ul>
+          <p>His earlier research experience at the University of Management and Technology includes:</p>
+          <ul>
+            <li><i>Gaze Estimation using Deep Learning and its Applications in Predicting User Actions</i> (ICOSST 2024).</li>
+            <li><i>Behind the Scenes: Frame-level Video Search using Captioning and Similarity Search</i>.</li>
+            <li><i>Image and Video Steganography using Deep Learning</i>.</li>
+          </ul>
+        </section>
+
+        <section id="career" aria-labelledby="career-title">
+          <h2 id="career-title">Career</h2>
+          <h3 id="transitionai">TransitionAI <span class="muted">(current)</span></h3>
+          <p>Syed is the <b>founder of TransitionAI</b>.</p>
+
+          <h3 id="datics-ai">Datics AI <span class="muted">(former role; started March 2025)</span></h3>
+          <p>As a <b>Senior Software Engineer</b>, Syed developed autonomous AI agents for extracting structured and unstructured data about medical providers from more than <b>1,000 sources</b>, achieving <b>88% extraction accuracy</b>. The work included data validation, language-model reasoning, and ETL pipelines built with Python, Snowflake, and AWS RDS.</p>
+          <p>He also developed a freelancer automation system using Google ADK, LangChain, and LangGraph, as well as video intelligence systems combining real-time object detection, multi-object tracking, and semantic search using YOLO, BLIP, and FAISS.</p>
+
+          <h3 id="yellow-beam">Yellow Beam Technologies <span class="muted">(May 2024–March 2025)</span></h3>
+          <p>As a <b>Software Engineer</b>, he developed conversational AI systems for call-center automation and an intelligent <b>GraphRAG</b> information retrieval system for medical and patient-care facilities, with reported retrieval accuracy of <b>94%</b>. His work also included deployment of a blockchain-based weather reporting system and support for cloud infrastructure and CI/CD workflows.</p>
+
+          <h3 id="motioncode">MotionCode <span class="muted">(August 2022–April 2024)</span></h3>
+          <p>As a <b>Software Engineer</b>, he developed a collaborative video annotation platform, a VM monitoring system, and a face-recognition system deployed on AWS SageMaker that could search millions of facial images and identify duplicates with <b>98% accuracy</b>.</p>
+        </section>
+
+        <section id="awards" aria-labelledby="awards-title">
+          <h2 id="awards-title">Honors and awards</h2>
+          <table class="wikitable">
+            <thead><tr><th scope="col">Year</th><th scope="col">Award or recognition</th><th scope="col">Distinction</th></tr></thead>
+            <tbody>
+              <tr><td>2025</td><td>Microsoft Imagine Cup</td><td>Global Semifinalist</td></tr>
+              <tr><td>2024</td><td>Google Gemma AI Hackathon, London</td><td>Global Finalist</td></tr>
+              <tr><td>2024</td><td>IBM Watson AI Hackathon</td><td>2nd Runner-up</td></tr>
+              <tr><td>2025</td><td>NASA Space Apps Challenge</td><td>Local Honorable Mention</td></tr>
+              <tr><td>2025</td><td>University of Management and Technology</td><td>Silver Medalist (2/290); GreenAir Special Gold Medal</td></tr>
+              <tr><td>—</td><td>Academic excellence</td><td>Three Rector Gold Medals and three Dean Silver Medals</td></tr>
+              <tr><td>—</td><td>Innovative Lyallpur 3.0</td><td>Runner-up (3rd among 200+ teams)</td></tr>
+            </tbody>
+          </table>
+          <p>His final-year project, <i>SmartGrade AI</i>, received <b>$25,000 in Azure credits</b> through Microsoft for Startups. His résumé also lists incubation and funding through Regional Plan 9.</p>
+        </section>
+
+        <section id="teaching" aria-labelledby="teaching-title">
+          <h2 id="teaching-title">Teaching and community</h2>
+          <ul>
+            <li><b>Graduate Teaching Assistant</b>, CS 2104: Introduction to Problem Solving, Virginia Tech.</li>
+            <li><b>Teaching Assistant</b> for Machine Learning and Computer Networks at the University of Management and Technology.</li>
+            <li><b>AI/ML Lead Tutor</b> at Buildables; <b>DevOps/MLOps Trainer</b> at Arfa Karim Incubation Center.</li>
+            <li><b>Google Campus Lead</b>, Google Developers Group program (2023–2024).</li>
+            <li><b>Speaker</b> at more than 15 technology sessions connected with Google Developers communities and Microsoft Student Ambassadors.</li>
+            <li><b>AI Track Judge</b> at Surge Hackathon 2025; <b>Workshop Trainer</b> at ICFCS UMT 2025.</li>
+            <li><b>President</b> of the UMT Computer Science Society (2024) and <b>President</b> of a Rotaract Club (2023).</li>
+            <li><b>Valedictorian</b> at UMT's 28th Convocation.</li>
+          </ul>
+        </section>
+
+        <section id="certifications" aria-labelledby="certifications-title">
+          <h2 id="certifications-title">Certifications</h2>
+          <ul>
+            <li>AWS Machine Learning Associate (MLA)</li>
+            <li>AWS Generative AI Professional</li>
+            <li>AWS AI Foundational</li>
+            <li>Machine Learning Specialization — DeepLearning.AI</li>
+            <li>Deep Learning Specialization — DeepLearning.AI</li>
+            <li>Introduction to LangGraph — LangGraph Academy</li>
+            <li>KodeKloud certificates in Bash/Shell Scripting, CI/CD with Jenkins, AWS Solutions Architect Associate, and Kubernetes</li>
+          </ul>
+        </section>
+
+        <section id="external-links" aria-labelledby="external-links-title">
+          <h2 id="external-links-title">External links</h2>
+          <ul>
+            <li><a class="ext" href="https://github.com/theobjectorientedguy" target="_blank" rel="noopener noreferrer">GitHub — theobjectorientedguy</a></li>
+            <li><a class="ext" href="https://linkedin.com/in/sadain-haider" target="_blank" rel="noopener noreferrer">LinkedIn — sadain-haider</a></li>
+            <li><a href="mailto:syedsadain@vt.edu">Email — syedsadain@vt.edu</a></li>
+          </ul>
+        </section>
+      </div>
+
+      <p class="top-link"><a href="#top">↑ Back to top</a></p>
+      <footer class="site-footer">
+        This is an independent personal website, styled after an encyclopedia article. It is not a Wikipedia page and is not affiliated with Wikipedia or the Wikimedia Foundation.
+        <div class="footer-links">
+          <a href="https://github.com/theobjectorientedguy" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="https://linkedin.com/in/sadain-haider" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="mailto:syedsadain@vt.edu">Contact</a>
+        </div>
+      </footer>
+    </main>
+
+    <aside class="sidebar-right" aria-label="Appearance">
+      <div class="sticky appearance-panel">
+        <div class="sidebar-title"><span>Appearance</span></div>
+        <div class="setting-group">
+          <p class="setting-title">Text</p>
+          <label class="radio-option"><input type="radio" name="font-size" value="small"> Small</label>
+          <label class="radio-option"><input type="radio" name="font-size" value="standard" checked> Standard</label>
+          <label class="radio-option"><input type="radio" name="font-size" value="large"> Large</label>
+        </div>
+        <div class="setting-group">
+          <p class="setting-title">Width</p>
+          <label class="radio-option"><input type="radio" name="page-width" value="standard" checked> Standard</label>
+          <label class="radio-option"><input type="radio" name="page-width" value="wide"> Wide</label>
+        </div>
+        <div class="setting-group">
+          <p class="setting-title">Color</p>
+          <label class="radio-option"><input type="radio" name="color-mode" value="light" checked> Light</label>
+          <label class="radio-option"><input type="radio" name="color-mode" value="dark"> Dark</label>
+        </div>
+        <p class="appearance-explainer">Adjust how this article appears. Your preferences are saved in this browser.</p>
+      </div>
+    </aside>
+  </div>
+
+  <script>
+    (() => {
+      'use strict';
+      const root = document.documentElement;
+      const body = document.body;
+      const mobileWidth = window.matchMedia('(max-width: 850px)');
+      const toc = document.getElementById('contents');
+      const navToggle = document.getElementById('nav-toggle');
+      const navOverlay = document.getElementById('nav-overlay');
+      const tocHide = document.getElementById('toc-hide');
+      const tocRestore = document.getElementById('contents-restore');
+      const mobileContents = document.getElementById('mobile-contents');
+      const preferences = [
+        { key: 'font', attr: 'font', name: 'font-size', allowed: ['small','standard','large'] },
+        { key: 'width', attr: 'width', name: 'page-width', allowed: ['standard','wide'] },
+        { key: 'theme', attr: 'theme', name: 'color-mode', allowed: ['light','dark'] }
+      ];
+      const getStored = key => { try { return localStorage.getItem('syed-site-' + key); } catch { return null; } };
+      const store = (key,value) => { try { localStorage.setItem('syed-site-' + key,value); } catch {} };
+
+      for (const pref of preferences) {
+        const stored = getStored(pref.key);
+        if (pref.allowed.includes(stored)) root.dataset[pref.attr] = stored;
+        document.querySelectorAll(`input[name="${pref.name}"]`).forEach(input => {
+          input.checked = input.value === root.dataset[pref.attr];
+          input.addEventListener('change', () => {
+            if (!input.checked || !pref.allowed.includes(input.value)) return;
+            root.dataset[pref.attr] = input.value;
+            store(pref.key,input.value);
+          });
+        });
+      }
+
+      function setToc(open) {
+        if (mobileWidth.matches) {
+          body.classList.toggle('toc-open',open);
+          navToggle.setAttribute('aria-expanded',String(open));
+          navToggle.setAttribute('aria-label',open ? 'Close table of contents' : 'Open table of contents');
+          if (open) toc.querySelector('a').focus();
+        } else {
+          body.classList.toggle('toc-collapsed',!open);
+          store('toc',open ? 'shown' : 'hidden');
+          navToggle.setAttribute('aria-expanded',String(open));
+        }
+      }
+      if (!mobileWidth.matches && getStored('toc') === 'hidden') setToc(false);
+      navToggle.addEventListener('click', () => setToc(mobileWidth.matches ? !body.classList.contains('toc-open') : body.classList.contains('toc-collapsed')));
+      mobileContents.addEventListener('click', () => setToc(true));
+      tocHide.addEventListener('click', () => setToc(false));
+      tocRestore.addEventListener('click', () => setToc(true));
+      navOverlay.addEventListener('click', () => setToc(false));
+      document.querySelectorAll('#toc-list a').forEach(a => a.addEventListener('click', () => { if (mobileWidth.matches) setToc(false); }));
+      document.addEventListener('keydown', e => { if (e.key === 'Escape') { if (body.classList.contains('toc-open')) { setToc(false); navToggle.focus(); } hideResults(); } });
+      mobileWidth.addEventListener('change', () => { body.classList.remove('toc-open'); if (!mobileWidth.matches) body.classList.toggle('toc-collapsed',getStored('toc') === 'hidden'); });
+
+      const sections = Array.from(document.querySelectorAll('.article-body section'));
+      const tocLinks = Array.from(document.querySelectorAll('#toc-list a'));
+      if ('IntersectionObserver' in window) {
+        const visible = new Map();
+        const observer = new IntersectionObserver(entries => {
+          entries.forEach(entry => { if (entry.isIntersecting) visible.set(entry.target.id,entry.boundingClientRect.top); else visible.delete(entry.target.id); });
+          if (!visible.size) return;
+          const active = Array.from(visible.entries()).sort((a,b) => Math.abs(a[1])-Math.abs(b[1]))[0][0];
+          tocLinks.forEach(a => { const selected = a.getAttribute('href') === '#' + active; a.classList.toggle('active',selected); if (selected) a.setAttribute('aria-current','location'); else a.removeAttribute('aria-current'); });
+        },{ rootMargin:'-5% 0px -67% 0px',threshold:0 });
+        sections.forEach(section => observer.observe(section));
+      }
+
+      const form = document.getElementById('search-form');
+      const searchField = document.getElementById('search-field');
+      const results = document.getElementById('search-results');
+      const hideResults = () => { results.classList.remove('show'); results.replaceChildren(); };
+      const showSearchMatches = (matches,query) => {
+        results.replaceChildren();
+        const caption = document.createElement('div');
+        caption.className = 'result-caption';
+        caption.textContent = matches.length ? `${matches.length} matching section${matches.length === 1 ? '' : 's'} for “${query}”` : `No matching sections for “${query}”`;
+        results.appendChild(caption);
+        matches.forEach(section => {
+          const anchor = document.createElement('a');
+          anchor.className = 'result-link'; anchor.href = '#' + section.id;
+          const title = section.querySelector('h2');
+          anchor.textContent = title?.textContent || section.id;
+          const excerpt = document.createElement('small');
+          const content = section.innerText.replace(/\s+/g,' ').trim();
+          const position = content.toLowerCase().indexOf(query.toLowerCase());
+          excerpt.textContent = (position > 30 ? '…' : '') + content.slice(Math.max(0,position-30),Math.min(content.length,position+95)) + (position+95 < content.length ? '…' : '');
+          anchor.appendChild(excerpt);
+          anchor.addEventListener('click',() => {
+            hideResults(); searchField.blur();
+            section.classList.remove('section-flash');
+            void section.offsetWidth;
+            section.classList.add('section-flash');
+          });
+          results.appendChild(anchor);
+        });
+        results.classList.add('show');
+      };
+      form.addEventListener('submit', e => {
+        e.preventDefault();
+        const query = searchField.value.trim();
+        if (!query) { hideResults(); return; }
+        const matches = sections.filter(s => s.textContent.toLocaleLowerCase().includes(query.toLocaleLowerCase()));
+        showSearchMatches(matches,query);
+      });
+      searchField.addEventListener('input',() => { if (!searchField.value.trim()) hideResults(); });
+      document.addEventListener('click',e => { if (!form.contains(e.target)) hideResults(); });
+      const toolsWrapper = document.getElementById('tools-wrapper');
+      const toolsToggle = document.getElementById('tools-toggle');
+      const closeTools = () => {
+        toolsWrapper.classList.remove('open');
+        toolsToggle.setAttribute('aria-expanded','false');
+      };
+      toolsToggle.addEventListener('click', () => {
+        const opened = toolsWrapper.classList.toggle('open');
+        toolsToggle.setAttribute('aria-expanded',String(opened));
+      });
+      document.addEventListener('click',e => { if (!toolsWrapper.contains(e.target)) closeTools(); });
+      document.addEventListener('keydown',e => { if (e.key === 'Escape') closeTools(); });
+      document.getElementById('print-button').addEventListener('click',() => { closeTools(); window.print(); });
+      document.getElementById('share-button').addEventListener('click',async e => {
+        const button = e.currentTarget;
+        try { await navigator.clipboard.writeText(window.location.href); button.textContent = 'Link copied'; }
+        catch { button.textContent = 'Copy URL from address bar'; }
+        window.setTimeout(() => { button.textContent = 'Copy permanent link'; closeTools(); },2000);
+      });
+    })();
+  </script>
+</body>
+</html>
